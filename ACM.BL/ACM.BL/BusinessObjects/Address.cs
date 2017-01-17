@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace ACM.BL.BusinessObjects
+﻿namespace ACM.BL.BusinessObjects
 {
     public class Address
     {
