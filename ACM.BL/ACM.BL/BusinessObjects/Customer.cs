@@ -1,8 +1,6 @@
-﻿using Acme.Common;
+﻿using ACM.Common;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ACM.BL.BusinessObjects
 {
@@ -29,11 +27,11 @@ namespace ACM.BL.BusinessObjects
         //public Address HomeAddress { get; set; }
         public List<Address> AddressList { get; set; }
         public int CustomerId { get; private set; }
-        public bool Equals(object x, object y)
-        {
-            // TODO: Implement this method
-            throw new NotImplementedException();
-        }
+        //public bool Equals(object x, object y)
+        //{
+        //    // TODO: Implement this method
+        //    throw new NotImplementedException();
+        //}
 
         public string FullName
         {
