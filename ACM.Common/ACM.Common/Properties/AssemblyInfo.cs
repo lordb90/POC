@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ACM.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Comparion")]
+[assembly: AssemblyCompany("Quantros")]
 [assembly: AssemblyProduct("ACM.Common")]
-[assembly: AssemblyCopyright("Copyright © Comparion 2017")]
+[assembly: AssemblyCopyright("Copyright © Quantros 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
