@@ -46,7 +46,6 @@
     <Compile Include="StringHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NuGet.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
