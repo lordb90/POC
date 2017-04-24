@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThrowAwayDatabaseStuff", "ThrowAwayDatabaseStuff\ThrowAwayDatabaseStuff.csproj", "{C526BB3B-5F58-405E-A3B2-5D48D7B3D4A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThrowAwayDatabaseStuff.Tests", "ThrowAwayDatabaseStuff.Tests\ThrowAwayDatabaseStuff.Tests.csproj", "{181E5A16-5B7F-435F-8CDE-F51A0E059FE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C526BB3B-5F58-405E-A3B2-5D48D7B3D4A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C526BB3B-5F58-405E-A3B2-5D48D7B3D4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C526BB3B-5F58-405E-A3B2-5D48D7B3D4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C526BB3B-5F58-405E-A3B2-5D48D7B3D4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181E5A16-5B7F-435F-8CDE-F51A0E059FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181E5A16-5B7F-435F-8CDE-F51A0E059FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181E5A16-5B7F-435F-8CDE-F51A0E059FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181E5A16-5B7F-435F-8CDE-F51A0E059FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAppDemo", "AzureAppDemo\AzureAppDemo.csproj", "{CD5BA2CB-4BC1-412F-947B-2B52E71C0AD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureAppDemoCommon", "AzureAppDemoCommon\AzureAppDemoCommon.csproj", "{3C31DB49-38CA-4E71-916C-A27273C93B0D}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureNodeJSDemo", "AzureNodeJSDemo\AzureNodeJSDemo.ccproj", "{432E381B-2669-456C-B649-46B67EBE43CF}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodeDemoWebJob", "NodeDemoWebJob\NodeDemoWebJob.njsproj", "{6860231B-B2E0-4605-9018-E6589BFA845D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD5BA2CB-4BC1-412F-947B-2B52E71C0AD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD5BA2CB-4BC1-412F-947B-2B52E71C0AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD5BA2CB-4BC1-412F-947B-2B52E71C0AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD5BA2CB-4BC1-412F-947B-2B52E71C0AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C31DB49-38CA-4E71-916C-A27273C93B0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C31DB49-38CA-4E71-916C-A27273C93B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C31DB49-38CA-4E71-916C-A27273C93B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C31DB49-38CA-4E71-916C-A27273C93B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432E381B-2669-456C-B649-46B67EBE43CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432E381B-2669-456C-B649-46B67EBE43CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432E381B-2669-456C-B649-46B67EBE43CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432E381B-2669-456C-B649-46B67EBE43CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6860231B-B2E0-4605-9018-E6589BFA845D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6860231B-B2E0-4605-9018-E6589BFA845D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6860231B-B2E0-4605-9018-E6589BFA845D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6860231B-B2E0-4605-9018-E6589BFA845D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

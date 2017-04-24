@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WarehouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+          </Key>
+          <Property Name="DeliveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReportingQuarterID" Type="bigint" Nullable="false" />
+          <Property Name="CqsSource" Type="varchar" MaxLength="120" />
+          <Property Name="VbpSource" Type="varchar" MaxLength="120" />
+          <Property Name="UtilizationSource" Type="varchar" MaxLength="120" />
+          <Property Name="CqsReportingQuarterIDBegin" Type="bigint" />
+          <Property Name="CqsReportingQuarterIDEnd" Type="bigint" />
+          <Property Name="VpbReportingQuarterIDBegin" Type="bigint" />
+          <Property Name="VbpReportingQuarterIDEnd" Type="bigint" />
+          <Property Name="UtilizationReportingQuarterIDBegin" Type="bigint" />
+          <Property Name="UtilizationReportingQuarterIDEnd" Type="bigint" />
+          <Property Name="Domain1Name" Type="varchar" MaxLength="120" />
+          <Property Name="Domain2Name" Type="varchar" MaxLength="120" />
+          <Property Name="Domain3Name" Type="varchar" MaxLength="120" />
+          <Property Name="Domain4Name" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="HospitalDelivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+            <PropertyRef Name="HospitalID" />
+          </Key>
+          <Property Name="DeliveryID" Type="int" Nullable="false" />
+          <Property Name="CCN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HospitalID" Type="bigint" Nullable="false" />
+          <Property Name="HospitalName" Type="varchar" MaxLength="120" />
+          <Property Name="HospitalCity" Type="varchar" MaxLength="50" />
+          <Property Name="HospitalState" Type="char" MaxLength="2" />
+          <Property Name="CqsNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="CqsNationalRatingID" Type="tinyint" />
+          <Property Name="RamiNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="RamiNationalRatingID" Type="tinyint" />
+          <Property Name="RaciNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="RaciNationalRatingID" Type="tinyint" />
+          <Property Name="RariNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="RariNationalRatingID" Type="tinyint" />
+          <Property Name="PsiNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="PsiNationalRatingID" Type="tinyint" />
+          <Property Name="IqiNationalPercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="IqiNationalRatingID" Type="tinyint" />
+          <Property Name="VbpDomain1Score" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain2Score" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain3Score" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain4Score" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpTotalPerformanceScore" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain1Percentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain2Percentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain3Percentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain4Percentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpTotalPerformancePercentile" Type="decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain1RatingID" Type="tinyint" />
+          <Property Name="VbpDomain2RatingID" Type="tinyint" />
+          <Property Name="VbpDomain3RatingID" Type="tinyint" />
+          <Property Name="VbpDomain4RatingID" Type="tinyint" />
+          <Property Name="VbpTotalPerformanceRatingID" Type="tinyint" />
+          <Property Name="VbpIncentivePaymentPercentage" Type="decimal" Precision="9" Scale="8" />
+        </EntityType>
+        <EntityType Name="Utilization">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+            <PropertyRef Name="HospitalID" />
+            <PropertyRef Name="ReportingQuarterID" />
+          </Key>
+          <Property Name="DeliveryID" Type="int" Nullable="false" />
+          <Property Name="HospitalID" Type="bigint" Nullable="false" />
+          <Property Name="ReportingQuarterID" Type="bigint" Nullable="false" />
+          <Property Name="ActualCost" Type="decimal" Precision="9" Scale="0" />
+          <Property Name="ActualLos" Type="decimal" Precision="6" Scale="1" />
+          <Property Name="ComparitiveCost" Type="decimal" Precision="9" Scale="0" />
+          <Property Name="ComparitiveLos" Type="decimal" Precision="6" Scale="1" />
+          <Property Name="CostRatingID" Type="tinyint" />
+          <Property Name="LosRatingID" Type="tinyint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Warehouse.DASHBOARD.Visualization' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Visualization">
+          <Key>
+            <PropertyRef Name="CCN" />
+            <PropertyRef Name="ReportingQuarterID" />
+          </Key>
+          <Property Name="CCN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReportingQuarterID" Type="bigint" Nullable="false" />
+          <Property Name="FieldId" Type="uniqueidentifier" />
+          <Property Name="BlobWebAddress" Type="varchar(max)" />
+          <Property Name="BlobPdf" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Dashboard_HospitalDelivery_Dashboard_Delivery">
+          <End Role="Delivery" Type="Self.Delivery" Multiplicity="1" />
+          <End Role="HospitalDelivery" Type="Self.HospitalDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery">
+              <PropertyRef Name="DeliveryID" />
+            </Principal>
+            <Dependent Role="HospitalDelivery">
+              <PropertyRef Name="DeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_Utilization_Dashboard_HospitalDelivery">
+          <End Role="HospitalDelivery" Type="Self.HospitalDelivery" Multiplicity="1" />
+          <End Role="Utilization" Type="Self.Utilization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HospitalDelivery">
+              <PropertyRef Name="DeliveryID" />
+              <PropertyRef Name="HospitalID" />
+            </Principal>
+            <Dependent Role="Utilization">
+              <PropertyRef Name="DeliveryID" />
+              <PropertyRef Name="HospitalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WarehouseModelStoreContainer">
+          <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="DASHBOARD" store:Type="Tables" />
+          <EntitySet Name="HospitalDelivery" EntityType="Self.HospitalDelivery" Schema="DASHBOARD" store:Type="Tables" />
+          <EntitySet Name="Utilization" EntityType="Self.Utilization" Schema="DASHBOARD" store:Type="Tables" />
+          <EntitySet Name="Visualization" EntityType="Self.Visualization" store:Type="Tables" store:Schema="DASHBOARD">
+            <DefiningQuery>SELECT 
+    [Visualization].[CCN] AS [CCN], 
+    [Visualization].[ReportingQuarterID] AS [ReportingQuarterID], 
+    [Visualization].[FieldId] AS [FieldId], 
+    [Visualization].[BlobWebAddress] AS [BlobWebAddress], 
+    [Visualization].[BlobPdf] AS [BlobPdf]
+    FROM [DASHBOARD].[Visualization] AS [Visualization]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Dashboard_HospitalDelivery_Dashboard_Delivery" Association="Self.FK_Dashboard_HospitalDelivery_Dashboard_Delivery">
+            <End Role="Delivery" EntitySet="Delivery" />
+            <End Role="HospitalDelivery" EntitySet="HospitalDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_Utilization_Dashboard_HospitalDelivery" Association="Self.FK_Dashboard_Utilization_Dashboard_HospitalDelivery">
+            <End Role="HospitalDelivery" EntitySet="HospitalDelivery" />
+            <End Role="Utilization" EntitySet="Utilization" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WarehouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Delivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+          </Key>
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportingQuarterID" Type="Int64" Nullable="false" />
+          <Property Name="CqsSource" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="VbpSource" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="UtilizationSource" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="CqsReportingQuarterIDBegin" Type="Int64" />
+          <Property Name="CqsReportingQuarterIDEnd" Type="Int64" />
+          <Property Name="VpbReportingQuarterIDBegin" Type="Int64" />
+          <Property Name="VbpReportingQuarterIDEnd" Type="Int64" />
+          <Property Name="UtilizationReportingQuarterIDBegin" Type="Int64" />
+          <Property Name="UtilizationReportingQuarterIDEnd" Type="Int64" />
+          <Property Name="Domain1Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Domain2Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Domain3Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Domain4Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HospitalDeliveries" Relationship="Self.FK_Dashboard_HospitalDelivery_Dashboard_Delivery" FromRole="Delivery" ToRole="HospitalDelivery" />
+        </EntityType>
+        <EntityType Name="HospitalDelivery">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+            <PropertyRef Name="HospitalID" />
+          </Key>
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" />
+          <Property Name="CCN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HospitalID" Type="Int64" Nullable="false" />
+          <Property Name="HospitalName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="HospitalCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HospitalState" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CqsNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="CqsNationalRatingID" Type="Byte" />
+          <Property Name="RamiNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="RamiNationalRatingID" Type="Byte" />
+          <Property Name="RaciNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="RaciNationalRatingID" Type="Byte" />
+          <Property Name="RariNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="RariNationalRatingID" Type="Byte" />
+          <Property Name="PsiNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="PsiNationalRatingID" Type="Byte" />
+          <Property Name="IqiNationalPercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="IqiNationalRatingID" Type="Byte" />
+          <Property Name="VbpDomain1Score" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain2Score" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain3Score" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain4Score" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpTotalPerformanceScore" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain1Percentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain2Percentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain3Percentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain4Percentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpTotalPerformancePercentile" Type="Decimal" Precision="9" Scale="6" />
+          <Property Name="VbpDomain1RatingID" Type="Byte" />
+          <Property Name="VbpDomain2RatingID" Type="Byte" />
+          <Property Name="VbpDomain3RatingID" Type="Byte" />
+          <Property Name="VbpDomain4RatingID" Type="Byte" />
+          <Property Name="VbpTotalPerformanceRatingID" Type="Byte" />
+          <Property Name="VbpIncentivePaymentPercentage" Type="Decimal" Precision="9" Scale="8" />
+          <NavigationProperty Name="Delivery" Relationship="Self.FK_Dashboard_HospitalDelivery_Dashboard_Delivery" FromRole="HospitalDelivery" ToRole="Delivery" />
+          <NavigationProperty Name="Utilizations" Relationship="Self.FK_Dashboard_Utilization_Dashboard_HospitalDelivery" FromRole="HospitalDelivery" ToRole="Utilization" />
+        </EntityType>
+        <EntityType Name="Utilization">
+          <Key>
+            <PropertyRef Name="DeliveryID" />
+            <PropertyRef Name="HospitalID" />
+            <PropertyRef Name="ReportingQuarterID" />
+          </Key>
+          <Property Name="DeliveryID" Type="Int32" Nullable="false" />
+          <Property Name="HospitalID" Type="Int64" Nullable="false" />
+          <Property Name="ReportingQuarterID" Type="Int64" Nullable="false" />
+          <Property Name="ActualCost" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="ActualLos" Type="Decimal" Precision="6" Scale="1" />
+          <Property Name="ComparitiveCost" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="ComparitiveLos" Type="Decimal" Precision="6" Scale="1" />
+          <Property Name="CostRatingID" Type="Byte" />
+          <Property Name="LosRatingID" Type="Byte" />
+          <NavigationProperty Name="HospitalDelivery" Relationship="Self.FK_Dashboard_Utilization_Dashboard_HospitalDelivery" FromRole="Utilization" ToRole="HospitalDelivery" />
+        </EntityType>
+        <EntityType Name="Visualization">
+          <Key>
+            <PropertyRef Name="CCN" />
+            <PropertyRef Name="ReportingQuarterID" />
+          </Key>
+          <Property Name="CCN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReportingQuarterID" Type="Int64" Nullable="false" />
+          <Property Name="FieldId" Type="Guid" />
+          <Property Name="BlobWebAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BlobPdf" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Dashboard_HospitalDelivery_Dashboard_Delivery">
+          <End Role="Delivery" Type="Self.Delivery" Multiplicity="1" />
+          <End Role="HospitalDelivery" Type="Self.HospitalDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivery">
+              <PropertyRef Name="DeliveryID" />
+            </Principal>
+            <Dependent Role="HospitalDelivery">
+              <PropertyRef Name="DeliveryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_Utilization_Dashboard_HospitalDelivery">
+          <End Role="HospitalDelivery" Type="Self.HospitalDelivery" Multiplicity="1" />
+          <End Role="Utilization" Type="Self.Utilization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HospitalDelivery">
+              <PropertyRef Name="DeliveryID" />
+              <PropertyRef Name="HospitalID" />
+            </Principal>
+            <Dependent Role="Utilization">
+              <PropertyRef Name="DeliveryID" />
+              <PropertyRef Name="HospitalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WarehouseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Deliveries" EntityType="Self.Delivery" />
+          <EntitySet Name="HospitalDeliveries" EntityType="Self.HospitalDelivery" />
+          <EntitySet Name="Utilizations" EntityType="Self.Utilization" />
+          <EntitySet Name="Visualizations" EntityType="Self.Visualization" />
+          <AssociationSet Name="FK_Dashboard_HospitalDelivery_Dashboard_Delivery" Association="Self.FK_Dashboard_HospitalDelivery_Dashboard_Delivery">
+            <End Role="Delivery" EntitySet="Deliveries" />
+            <End Role="HospitalDelivery" EntitySet="HospitalDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_Utilization_Dashboard_HospitalDelivery" Association="Self.FK_Dashboard_Utilization_Dashboard_HospitalDelivery">
+            <End Role="HospitalDelivery" EntitySet="HospitalDeliveries" />
+            <End Role="Utilization" EntitySet="Utilizations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WarehouseModelStoreContainer" CdmEntityContainer="WarehouseEntities">
+          <EntitySetMapping Name="Deliveries">
+            <EntityTypeMapping TypeName="WarehouseModel.Delivery">
+              <MappingFragment StoreEntitySet="Delivery">
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+                <ScalarProperty Name="ReportingQuarterID" ColumnName="ReportingQuarterID" />
+                <ScalarProperty Name="CqsSource" ColumnName="CqsSource" />
+                <ScalarProperty Name="VbpSource" ColumnName="VbpSource" />
+                <ScalarProperty Name="UtilizationSource" ColumnName="UtilizationSource" />
+                <ScalarProperty Name="CqsReportingQuarterIDBegin" ColumnName="CqsReportingQuarterIDBegin" />
+                <ScalarProperty Name="CqsReportingQuarterIDEnd" ColumnName="CqsReportingQuarterIDEnd" />
+                <ScalarProperty Name="VpbReportingQuarterIDBegin" ColumnName="VpbReportingQuarterIDBegin" />
+                <ScalarProperty Name="VbpReportingQuarterIDEnd" ColumnName="VbpReportingQuarterIDEnd" />
+                <ScalarProperty Name="UtilizationReportingQuarterIDBegin" ColumnName="UtilizationReportingQuarterIDBegin" />
+                <ScalarProperty Name="UtilizationReportingQuarterIDEnd" ColumnName="UtilizationReportingQuarterIDEnd" />
+                <ScalarProperty Name="Domain1Name" ColumnName="Domain1Name" />
+                <ScalarProperty Name="Domain2Name" ColumnName="Domain2Name" />
+                <ScalarProperty Name="Domain3Name" ColumnName="Domain3Name" />
+                <ScalarProperty Name="Domain4Name" ColumnName="Domain4Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HospitalDeliveries">
+            <EntityTypeMapping TypeName="WarehouseModel.HospitalDelivery">
+              <MappingFragment StoreEntitySet="HospitalDelivery">
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+                <ScalarProperty Name="CCN" ColumnName="CCN" />
+                <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+                <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
+                <ScalarProperty Name="HospitalCity" ColumnName="HospitalCity" />
+                <ScalarProperty Name="HospitalState" ColumnName="HospitalState" />
+                <ScalarProperty Name="CqsNationalPercentile" ColumnName="CqsNationalPercentile" />
+                <ScalarProperty Name="CqsNationalRatingID" ColumnName="CqsNationalRatingID" />
+                <ScalarProperty Name="RamiNationalPercentile" ColumnName="RamiNationalPercentile" />
+                <ScalarProperty Name="RamiNationalRatingID" ColumnName="RamiNationalRatingID" />
+                <ScalarProperty Name="RaciNationalPercentile" ColumnName="RaciNationalPercentile" />
+                <ScalarProperty Name="RaciNationalRatingID" ColumnName="RaciNationalRatingID" />
+                <ScalarProperty Name="RariNationalPercentile" ColumnName="RariNationalPercentile" />
+                <ScalarProperty Name="RariNationalRatingID" ColumnName="RariNationalRatingID" />
+                <ScalarProperty Name="PsiNationalPercentile" ColumnName="PsiNationalPercentile" />
+                <ScalarProperty Name="PsiNationalRatingID" ColumnName="PsiNationalRatingID" />
+                <ScalarProperty Name="IqiNationalPercentile" ColumnName="IqiNationalPercentile" />
+                <ScalarProperty Name="IqiNationalRatingID" ColumnName="IqiNationalRatingID" />
+                <ScalarProperty Name="VbpDomain1Score" ColumnName="VbpDomain1Score" />
+                <ScalarProperty Name="VbpDomain2Score" ColumnName="VbpDomain2Score" />
+                <ScalarProperty Name="VbpDomain3Score" ColumnName="VbpDomain3Score" />
+                <ScalarProperty Name="VbpDomain4Score" ColumnName="VbpDomain4Score" />
+                <ScalarProperty Name="VbpTotalPerformanceScore" ColumnName="VbpTotalPerformanceScore" />
+                <ScalarProperty Name="VbpDomain1Percentile" ColumnName="VbpDomain1Percentile" />
+                <ScalarProperty Name="VbpDomain2Percentile" ColumnName="VbpDomain2Percentile" />
+                <ScalarProperty Name="VbpDomain3Percentile" ColumnName="VbpDomain3Percentile" />
+                <ScalarProperty Name="VbpDomain4Percentile" ColumnName="VbpDomain4Percentile" />
+                <ScalarProperty Name="VbpTotalPerformancePercentile" ColumnName="VbpTotalPerformancePercentile" />
+                <ScalarProperty Name="VbpDomain1RatingID" ColumnName="VbpDomain1RatingID" />
+                <ScalarProperty Name="VbpDomain2RatingID" ColumnName="VbpDomain2RatingID" />
+                <ScalarProperty Name="VbpDomain3RatingID" ColumnName="VbpDomain3RatingID" />
+                <ScalarProperty Name="VbpDomain4RatingID" ColumnName="VbpDomain4RatingID" />
+                <ScalarProperty Name="VbpTotalPerformanceRatingID" ColumnName="VbpTotalPerformanceRatingID" />
+                <ScalarProperty Name="VbpIncentivePaymentPercentage" ColumnName="VbpIncentivePaymentPercentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizations">
+            <EntityTypeMapping TypeName="WarehouseModel.Utilization">
+              <MappingFragment StoreEntitySet="Utilization">
+                <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+                <ScalarProperty Name="HospitalID" ColumnName="HospitalID" />
+                <ScalarProperty Name="ReportingQuarterID" ColumnName="ReportingQuarterID" />
+                <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+                <ScalarProperty Name="ActualLos" ColumnName="ActualLos" />
+                <ScalarProperty Name="ComparitiveCost" ColumnName="ComparitiveCost" />
+                <ScalarProperty Name="ComparitiveLos" ColumnName="ComparitiveLos" />
+                <ScalarProperty Name="CostRatingID" ColumnName="CostRatingID" />
+                <ScalarProperty Name="LosRatingID" ColumnName="LosRatingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visualizations">
+            <EntityTypeMapping TypeName="WarehouseModel.Visualization">
+              <MappingFragment StoreEntitySet="Visualization">
+                <ScalarProperty Name="CCN" ColumnName="CCN" />
+                <ScalarProperty Name="ReportingQuarterID" ColumnName="ReportingQuarterID" />
+                <ScalarProperty Name="FieldId" ColumnName="FieldId" />
+                <ScalarProperty Name="BlobWebAddress" ColumnName="BlobWebAddress" />
+                <ScalarProperty Name="BlobPdf" ColumnName="BlobPdf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
